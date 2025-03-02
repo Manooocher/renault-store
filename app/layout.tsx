@@ -5,7 +5,6 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import localFont from 'next/font/local';
 
-// Load Vazir font locally
 const vazir = localFont({
   src: [
     {
@@ -23,16 +22,16 @@ const vazir = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'فروشگاه قطعات رنو | Renault Store',
-  description: 'فروشگاه آنلاین قطعات یدکی خودروهای رنو',
-  metadataBase: new URL('https://renault-store.ir'),
+  title: 'فروشگاه قطعات رنو | Renault Parts Store',
+  description: 'فروشگاه آنلاین قطعات یدکی خودروهای رنو با ارسال سریع و تضمین اصالت کالا',
+  keywords: 'قطعات رنو, لوازم یدکی رنو, Renault parts, L90, Megane',
   openGraph: {
-    type: 'website',
+    title: 'فروشگاه قطعات رنو | Renault Parts Store',
+    description: 'فروشگاه آنلاین قطعات یدکی خودروهای رنو با ارسال سریع و تضمین اصالت کالا',
+    url: 'https://renault-parts.com',
+    siteName: 'Renault Parts Store',
     locale: 'fa_IR',
-    url: 'https://renault-store.ir',
-    title: 'فروشگاه قطعات رنو | Renault Store',
-    description: 'فروشگاه آنلاین قطعات یدکی خودروهای رنو',
-    siteName: 'Renault Store',
+    type: 'website',
   },
 };
 
@@ -43,7 +42,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl" className={vazir.variable}>
-      <body className="font-vazir min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col bg-gray-50">
         <Providers>
           <Header />
           <main className="flex-grow">{children}</main>
