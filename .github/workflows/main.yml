@@ -20,7 +20,7 @@ jobs:
         run: tree -a > ./directory_structure.txt
 
       - name: Upload directory structure as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: directory-structure
           path: ./directory_structure.txt
