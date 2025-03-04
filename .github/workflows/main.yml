@@ -7,22 +7,20 @@ on:
 
 jobs:
   generate-tree:
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Install tree command
-        run: sudo apt-get install tree
+        run: sudo apt-get install -y tree
 
       - name: Generate directory tree
-        run: tree > directory_structure.txt
+        run: tree -a > ./directory_structure.txt
 
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add directory_structure.txt
-          git commit -m "Auto-generated directory structure"
-          git push
+      - name: Upload directory structure as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: directory-structure
+          path: ./directory_structure.txt
