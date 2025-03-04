@@ -1,0 +1,28 @@
+name: Generate Directory Tree
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  generate-tree:
+    runs-on: ubuntu-latest  
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install tree command
+        run: sudo apt-get install tree
+
+      - name: Generate directory tree
+        run: tree > directory_structure.txt
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add directory_structure.txt
+          git commit -m "Auto-generated directory structure"
+          git push
